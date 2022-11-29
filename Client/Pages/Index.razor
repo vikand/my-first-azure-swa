@@ -2,6 +2,19 @@
 
 <PageTitle>Index</PageTitle>
 
-<h1>Hello, world!</h1>
+<h1>My very first Static Web App using Blazor</h1>
 
-Welcome to your new app.
+<button @onclick="ButtonClick">@buttonCaption</button>
+
+@code {
+    private string buttonCaption = "Click me!";
+    private void ButtonClick()
+    {
+        var count = 1;
+        if (int.TryParse(buttonCaption, out count))
+        {
+            count++;
+        }
+        buttonCaption = count.ToString();
+    }
+}
